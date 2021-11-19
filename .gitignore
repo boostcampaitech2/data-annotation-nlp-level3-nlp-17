@@ -1,9 +1,10 @@
 data
 dataset
+tagging_data
 wandb
 best_model
 results
 .ipynb_checkpoints
-
+__pycache__/
 *.pkl
 
