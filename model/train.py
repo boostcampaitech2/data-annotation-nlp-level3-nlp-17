@@ -81,7 +81,7 @@ def train():
   print(device)
   # setting model hyperparameter
   model_config =  AutoConfig.from_pretrained(MODEL_NAME)
-  model_config.num_labels = 10
+  model_config.num_labels = 8
 
   model =  AutoModelForSequenceClassification.from_pretrained(MODEL_NAME, config=model_config)
   print(model.config)
