@@ -53,8 +53,12 @@ def load_test_dataset(dataset_dir, tokenizer):
     test dataset을 불러온 후,
     tokenizing 합니다.
   """
+  with open('dict_label_to_num.pkl', 'rb') as f:
+    dict_label_to_num = pickle.load(f)
+    
   test_dataset = load_data(dataset_dir)
-  test_label = list(map(int,test_dataset['label'].values))
+  test_label = [dict_label_to_num[label] for label in test_dataset['label'].values]
+  test_label = list(map(int,test_label))
   # tokenizing dataset
   tokenized_test = tokenized_dataset(test_dataset, tokenizer)
   return test_dataset['id'], tokenized_test, test_label
